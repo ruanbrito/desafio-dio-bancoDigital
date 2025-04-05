@@ -1,36 +1,17 @@
 package com.dio.cliente;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@NoArgsConstructor
+//@AllArgsConstructor
 public class Cliente {
-
+	@Getter	@Setter
 	private String nome;
+	@Getter	@Setter
 	private String email;
+	@Getter	@Setter
 	private String cpf;
-
-	public Cliente() {
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
 
 }

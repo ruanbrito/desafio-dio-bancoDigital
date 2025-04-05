@@ -4,47 +4,29 @@ import com.dio.cliente.Cliente;
 import com.dio.exception.Exceptions;
 import com.dio.transacoesConta.TransacoesConta;
 
+import lombok.Getter;
+import lombok.Setter;
+
 public abstract class Conta implements TransacoesConta {
 
 	private static final int AGENCIA_PADRAO = 1;
 	private static int SEQUENCIAL = 1;
 
+	@Getter
 	protected Integer agencia;
+	@Getter
 	protected Integer numeroConta;
+	@Getter
+	@Setter
 	protected Double saldo;
+	@Getter
+	@Setter
 	protected Cliente cliente;
-
-	public Conta() {
-	}
 
 	public Conta(Cliente cliente) {
 		this.agencia = AGENCIA_PADRAO;
 		this.numeroConta = SEQUENCIAL++;
 		this.cliente = cliente;
-	}
-
-	public Cliente getCliente() {
-		return cliente;
-	}
-
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
-
-	public Integer getAgencia() {
-		return agencia;
-	}
-
-	public Integer getNumeroConta() {
-		return numeroConta;
-	}
-
-	public Double getSaldo() {
-		return saldo;
-	}
-
-	public void setSaldo(Double saldo) {
-		this.saldo = saldo;
 	}
 
 	@Override
@@ -80,7 +62,7 @@ public abstract class Conta implements TransacoesConta {
 		}
 
 	}
-	
+
 	protected void imprimirInfosComuns() {
 		System.out.println(String.format("Titular: %s", this.cliente.getNome()));
 		System.out.println(String.format("Agencia: %d", this.agencia));
